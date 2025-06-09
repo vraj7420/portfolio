@@ -18,7 +18,6 @@ const Navbar = () => {
       const getBioData = async () => {
         try {
           const data = await fetchBioData();
-          console.log("TEst ===",data)
           setBioData(data); 
         } catch (error) {
           setErrorMessage(error.message);
