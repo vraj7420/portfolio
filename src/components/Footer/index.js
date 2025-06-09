@@ -86,7 +86,7 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Krupal Bhuva</Logo>
+        <Logo>Vraj Brahmbhatt</Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -101,7 +101,7 @@ function Footer() {
           <SocialMediaIcon href={Bio.insta} target="display"><FaInstagram /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2025 Krupal Bhuva. All rights reserved.
+          &copy; 2025 Vraj Brahmbhatt All rights reserved.
         </Copyright>
 
       </FooterWrapper>

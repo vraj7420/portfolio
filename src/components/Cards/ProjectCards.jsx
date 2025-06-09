@@ -17,25 +17,28 @@ const Button = styled.button`
 `
 const Card = styled.div`
     width: 330px;
-    height: 490px;
-    background-color: ${({ theme }) => theme.card};
-    cursor: pointer;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    padding: 12px 16px;
+    justify-content: space-between;
+    position: relative;
     overflow: hidden;
-    padding: 26px 20px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
-        filter: brightness(1.1);
+    gap: 12px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+        transform: translateY(-5px);
     }
-    &:hover ${Button} {
-        display: block;
+    @media only screen and (max-width: 768px){
+        padding: 10px;
+        gap: 8px;
+        width: 300px;
     }
+    border: 0.1px solid ${({ theme }) => theme.border};
+    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
 `
 
 const Image = styled.img`
@@ -122,13 +125,20 @@ const Avatar = styled.img`
     border: 3px solid ${({ theme }) => theme.card};
 `
 
-const ProjectCards = ({project,setOpenModal}) => {
+const ProjectCards = ({ project, setOpenModal }) => {
     return (
-        <Card onClick={() => setOpenModal({state: true, project: project})}>
-            <Image src={project.image}/>
+        <Card onClick={() => setOpenModal({ state: true, project: project })}>
+            <Image
+                src={project.image}
+                style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover' // or 'contain', based on what you want
+                }}
+            />
             <Tags>
                 {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
+                    <Tag>{tag}</Tag>
                 ))}
             </Tags>
             <Details>
@@ -136,12 +146,6 @@ const ProjectCards = ({project,setOpenModal}) => {
                 <Date>{project.date}</Date>
                 <Description>{project.description}</Description>
             </Details>
-            {/* <Members>
-                {project.member?.map((member) => (
-                    <Avatar src={member.img}/>
-                ))}
-            </Members> */}
-            {/* <Button>View Project</Button> */}
         </Card>
     )
 }
